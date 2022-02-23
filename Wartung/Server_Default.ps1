@@ -34,3 +34,10 @@ Write-Host "User Access Control (UAC) has been disabled." -ForegroundColor Green
 
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
 
+# RDP aktivieren
+
+Set-ItemProperty ‘HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\‘ -Name “fDenyTSConnections” -Value 0
+
+# Microsoft Defender deinstallieren
+
+Uninstall-WindowsFeature -Name Windows-Defender
